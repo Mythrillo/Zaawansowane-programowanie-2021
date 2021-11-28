@@ -3,7 +3,9 @@ import requests
 
 class Brawery:
 
-    def __init__(self, id: int,
+    def __init__(
+        self,
+        id: int,
         name: str,
         brewery_type: str,
         street: str,
@@ -19,7 +21,7 @@ class Brawery:
         phone: str,
         website_url: str,
         updated_at: str,
-        created_at: str,
+        created_at: str
     ) -> None:
         self.id = id
         self.name = name
@@ -29,7 +31,7 @@ class Brawery:
         self.address_3 = address_3
         self.city = city
         self.state = state
-        self.county_province =county_province
+        self.county_province = county_province
         self.postal_code = postal_code
         self.country = country
         self.longitude = longitude
@@ -46,6 +48,7 @@ class Brawery:
                 tmp += f"{attr}: {value} "
         return tmp
 
+
 def get_breweries() -> list:
     url = "https://api.openbrewerydb.org/breweries"
     response = requests.get(
@@ -55,6 +58,7 @@ def get_breweries() -> list:
         return response.json()
     else:
         return []
+
 
 if __name__ == "__main__":
     breweries_info = get_breweries(n=1)

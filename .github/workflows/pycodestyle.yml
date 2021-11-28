@@ -20,4 +20,4 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with pycodestyle
       run: |
-        pycodestyle --filename=zad_*.py .
+        pycodestyle --filename=zad_*.py --count .

@@ -1,10 +1,11 @@
 
 class Property:
 
-    def __init__(self, 
-        area: float, 
-        rooms: int, 
-        price: float, 
+    def __init__(
+        self,
+        area: float,
+        rooms: int,
+        price: float,
         address: str
     ) -> None:
         self.area = area
@@ -12,12 +13,14 @@ class Property:
         self.price = price
         self.address = address
 
+
 class House(Property):
-    
-    def __init__(self, 
-        area: float, 
-        rooms: int, 
-        price: float, 
+
+    def __init__(
+        self,
+        area: float,
+        rooms: int,
+        price: float,
         address: str,
         plot: int
     ) -> None:
@@ -25,19 +28,16 @@ class House(Property):
         self.plot = plot
 
     def __str__(self) -> str:
-        return f"""Area: {self.area}
-Pokoje: {self.rooms}
-Cena: {self.price} 
-Adres: {self.address} 
-Pole: {self.plot}"""
+        return f"Area: {self.area} Pokoje: {self.rooms} Cena: {self.price} Adres: {self.address} Pole: {self.plot}"
 
 
 class Flat(Property):
 
-    def __init__(self, 
-        area: float, 
-        rooms: int, 
-        price: float, 
+    def __init__(
+        self,
+        area: float,
+        rooms: int,
+        price: float,
         address: str,
         floor: int
     ) -> None:
@@ -45,11 +45,8 @@ class Flat(Property):
         self.floor = floor
 
     def __str__(self) -> str:
-        return f"""Area: {self.area}
-Pokoje: {self.rooms}
-Cena: {self.price} 
-Adres: {self.address} 
-Piętro: {self.floor}"""
+        return f"Area: {self.area} Pokoje: {self.rooms} Cena: {self.price} Adres: {self.address} Piętro: {self.floor}"
+
 
 if __name__ == "__main__":
     house = House(15.5, 5, 100000, "Kasztanowa 15 Katowice", 300)

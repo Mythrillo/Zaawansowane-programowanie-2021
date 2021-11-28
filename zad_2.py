@@ -4,20 +4,21 @@ from zad_1 import Student
 class Library:
 
     def __init__(self, city: str, street: str, zip_code: str,
-        open_hours: str, phone: str
-    ) -> None:
+                 open_hours: str, phone: str) -> None:
         self.city = city
         self.zip_code = zip_code
         self.street = street
         self.open_hours = open_hours
         self.phone = phone
-    
+
     def __str__(self) -> str:
         return f"Biblioteka w miesście: {self.city} {self.zip_code} na ulicy {self.street}. Godziny otwarcia: {self.open_hours}. Telefon: {self.phone}"
 
+
 class Employee:
 
-    def __init__(self,
+    def __init__(
+        self,
         first_name: str,
         last_name: str,
         hire_date: str,
@@ -37,17 +38,16 @@ class Employee:
         self.phone = phone
 
     def __str__(self) -> str:
-        return f"""Pracownik {self.first_name} {self.last_name}, zatrudniony {self.hire_date},
-         urodzony {self.birth_date}, zamieszkały w {self.city} {self.zip_code} {self.street}.
-         Telefon: {self.phone}"""
+        return f"Pracownik {self.first_name} {self.last_name}, zatrudniony {self.hire_date}, urodzony {self.birth_date}, zamieszkały w {self.city} {self.zip_code} {self.street}. Telefon: {self.phone}"
 
 
 class Order:
 
-    def __init__(self,
-        employee: Employee, 
+    def __init__(
+        self,
+        employee: Employee,
         student: Student,
-        books: list, 
+        books: list,
         order_date: str
     ) -> None:
         self.employee = employee
@@ -64,7 +64,8 @@ class Order:
 
 class Book:
 
-    def __init__(self,
+    def __init__(
+        self,
         library: Library,
         publication_date: str,
         author_name: str,
@@ -79,6 +80,7 @@ class Book:
 
     def __str__(self) -> str:
         return f"Książka autorstwa: {self.author_name} {self.author_surname} opublikowana: {self.publication_date}. Liczba stron: {self.number_of_pages}. Dostępna w bibliotece: {self.library}"
+
 
 if __name__ == "__main__":
     lib1 = Library(

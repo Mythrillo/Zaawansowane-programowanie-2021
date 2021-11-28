@@ -12,7 +12,6 @@ class Student:
         return f"Student: {self.name} z punktami: {self.marks}"
 
 
-
 if __name__ == "__main__":
     student_true = Student("Mikołaj", 99)
     student_false = Student("Tomasz", 1)

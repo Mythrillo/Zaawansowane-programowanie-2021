@@ -14,6 +14,7 @@ class Library:
     def __str__(self) -> str:
         return f"Biblioteka w miesście: {self.city} {self.zip_code} na ulicy {self.street}. Godziny otwarcia: {self.open_hours}. Telefon: {self.phone}"
 
+test = 5
 
 class Employee:
 

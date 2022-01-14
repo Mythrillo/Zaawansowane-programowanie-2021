@@ -3,6 +3,7 @@ from io import BytesIO
 from PIL import Image
 
 from flask import send_file
+from flask import Response
 from flask_restful import Resource
 from flask_restful import reqparse
 import werkzeug
@@ -11,16 +12,16 @@ import numpy as np
 
 
 class PersonDetection(Resource):
-    def post(self):
+    def post(self) -> Response:
         parser = reqparse.RequestParser()
         parser.add_argument("file", type=werkzeug.datastructures.FileStorage, location='files')
         args = parser.parse_args()
         try:
             return self._detect_people(args["file"])
         except Exception:
-            return {"message": "something went wrong"}, 500
+            return Response("something went wrong", 500)
 
-    def _detect_people(self, image):
+    def _detect_people(self, image: werkzeug.datastructures.FileStorage) -> Response:
         with open("models/classes.json") as f:
             classes = json.load(f)
         image_str = image.read()
@@ -49,7 +50,7 @@ class PersonDetection(Resource):
         image = Image.fromarray(image)
         return self._serve_pil_image(image)
 
-    def _serve_pil_image(self, image):
+    def _serve_pil_image(self, image: Image.Image) -> Response:
         image_io = BytesIO()
         image.save(image_io, "JPEG", quality=70)
         image_io.seek(0)

@@ -5,5 +5,5 @@ from flask import render_template
 
 class Index(Resource):
 
-    def get(self):
+    def get(self) -> Response:
         return Response(response=render_template("index.html"))

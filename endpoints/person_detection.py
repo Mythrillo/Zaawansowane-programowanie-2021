@@ -9,15 +9,15 @@ import werkzeug
 import cv2
 import numpy as np
 
+
 class PersonDetection(Resource):
-    
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument("file", type=werkzeug.datastructures.FileStorage, location='files')
         args = parser.parse_args()
         try:
             return self._detect_people(args["file"])
-        except:
+        except Exception:
             return {"message": "something went wrong"}, 500
 
     def _detect_people(self, image):
@@ -43,8 +43,8 @@ class PersonDetection(Resource):
                 right = cvOut[0, 0, i][5] * cols
                 bottom = cvOut[0, 0, i][6] * rows
                 cv2.rectangle(image, (int(left), int(top)), (int(right), int(bottom)), (0, 255, 0), thickness=2)
-                #cv2.putText(image, f"{classes[str(int(cvOut[0, 0, i, 1]))]}, confidence: {confidence:.2f}", (int(left), int(top) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-        #cv2.putText(image, f"Detected: {count} people.", (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+                # cv2.putText(image, f"{classes[str(int(cvOut[0, 0, i, 1]))]}, confidence: {confidence:.2f}", (int(left), int(top) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        # cv2.putText(image, f"Detected: {count} people.", (20, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = Image.fromarray(image)
         return self._serve_pil_image(image)

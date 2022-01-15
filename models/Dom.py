@@ -20,3 +20,4 @@ class Dom(Budynek):
     def __str__(self) -> str:
         tmp = super().__str__()
         tmp += f"\nPietra: {self._pietra}"
+        return tmp

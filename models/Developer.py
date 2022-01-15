@@ -36,6 +36,6 @@ class Developer:
 
     def __str__(self) -> str:
         return f"""{self._nazwa_firmy} posiadający:
-            {len(self._mieszkania)} mieszkania,
-            {len(self._domy)} domy.
-            Email kontatkowy: {self._email}"""
+{len(self._mieszkania)} mieszkania,
+{len(self._domy)} domy.
+Email kontatkowy: {self._email}"""

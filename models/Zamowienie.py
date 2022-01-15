@@ -63,5 +63,8 @@ class Zamowienie:
 
     def __str__(self) -> str:
         return f"""Zamowienie na: {len(self._domy)} domy,
-            {len(self._mieszkania)} mieszkania,
-            od developera {self._developer}"""
+{len(self._mieszkania)} mieszkania,
+od developera {self._developer}
+Data: {self._data}
+Cena zamowienia: {self.oblicz_wartosc()}
+Laczna ilosc metrow: {self.oblicz_metry()}"""

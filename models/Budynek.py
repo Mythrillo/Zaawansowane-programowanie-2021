@@ -26,5 +26,5 @@ class Budynek:
 
     def __str__(self) -> str:
         return f"""Pole: {self._pole}
-        Pokoje: {self._pokoje}
-        Cena: {self._cena}"""
+Pokoje: {self._pokoje}
+Cena: {self._cena}"""
